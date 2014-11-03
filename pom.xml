@@ -61,5 +61,12 @@
 			<version>1.9.5</version>
 			<scope>test</scope>
 	</dependency>
+	<dependency>
+		<groupId>Basics</groupId>
+		<artifactId>Basics</artifactId>
+		<version>0.0.1</version>
+		<scope>compile</scope>
+		<type>test-jar</type>
+	</dependency>
   </dependencies>
 </project>
