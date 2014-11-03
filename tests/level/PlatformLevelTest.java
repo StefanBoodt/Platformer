@@ -19,6 +19,9 @@ import org.junit.Before;
  */
 public class PlatformLevelTest extends LevelTest {
 
+	/**
+	 * The number of the world under test.
+	 */
 	protected final int worldnumber = 2;
 	
 	@Override
