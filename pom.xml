@@ -45,6 +45,7 @@
 		<groupId>Basics</groupId>
 		<artifactId>Basics</artifactId>
 		<version>0.0.1</version>
+		<scope>compile</scope>
 	</dependency>
   
   <!--  Testing -->
