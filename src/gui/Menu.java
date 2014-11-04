@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Dimension;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
@@ -26,6 +27,11 @@ public class Menu extends MainMenu {
 	 * The listener to use.
 	 */
 	private final ActionListener listener;
+	
+	/**
+	 * The dimensions of the button.
+	 */
+	public static Dimension buttondimension = new Dimension(100,80);
 	
 	/**
 	 * Creates a menu.
@@ -89,6 +95,7 @@ public class Menu extends MainMenu {
 		}
 		button.setActionCommand(command);
 		button.addActionListener(listener);
+		button.setSize(buttondimension);
 		this.add(button);
 	}
 	
@@ -98,5 +105,13 @@ public class Menu extends MainMenu {
 	 */
 	public ActionListener getListener() {
 		return listener;
+	}
+	
+	@Override
+	public void setUp() {
+		if (listener != null) {
+			super.setUp();
+			// Only set them if the listener is not equal to null.
+		}
 	}
 }
