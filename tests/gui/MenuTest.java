@@ -64,6 +64,31 @@ public class MenuTest {
 		final JButton failure = new JButton();
 		menu.addButton(failure);
 	}
+	
+	/**
+	 * Tests the menu with another constructor.
+	 */
+	@Test
+	public void testMenuOtherConstructor() {
+		final int height = 30, width = 40;
+		final boolean doublebuffer = true;
+		Menu menu = new Menu(width, height, doublebuffer);
+		menu.setVisible(true);
+		assertEquals(doublebuffer, menu.isDoubleBuffered());
+		menu.setVisible(false);
+	}
+	
+	/**
+	 * Tests the menu with another constructor.
+	 */
+	@Test
+	public void testMenuOtherConstructorOnlyBuffer() {
+		final boolean doublebuffer = true;
+		Menu menu = new Menu(doublebuffer);
+		menu.setVisible(true);
+		assertEquals(doublebuffer, menu.isDoubleBuffered());
+		menu.setVisible(false);
+	}
 
 	/**
 	 * Sets the menu under test.
