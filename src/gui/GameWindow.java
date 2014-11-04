@@ -7,7 +7,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 /**
  * The window the game is in.
@@ -76,7 +76,7 @@ public class GameWindow extends Window {
 		Image[] icons = new Image[len];
 		for (int i = 0; i < len; i++) {
 			final URL iconurl = GameWindow.class.getResource(locs[i]);
-			final Image icon = ImageIO.read(iconurl);
+			final Image icon = new ImageIcon(iconurl).getImage();
 			icons[i] = icon;
 		}
 		return new GameWindow(title, icons);

@@ -62,7 +62,7 @@ public class MenuTest {
 	@Test (expected = Exception.class)
 	public void testAddButton() throws Exception {
 		final JButton failure = new JButton();
-		menu.addButton(failure);
+		getMenu().addButton(failure);
 	}
 	
 	/**
