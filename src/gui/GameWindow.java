@@ -1,11 +1,11 @@
 package gui;
 
-import game.Launcher;
-
 import java.awt.Dimension;
 import java.awt.Image;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 
@@ -42,14 +42,18 @@ public class GameWindow extends Window {
 	/**
 	 * Creates a game window.
 	 * @param title The title of the window.
-	 * @param icon The icon used for the program.
+	 * @param icons The icons used for the program.
 	 */
-	public GameWindow(final String title, final Image icon) {
+	public GameWindow(final String title, final Image... icons) {
 		super();
 		this.setSize(gamedimension);
+		List<Image> images = new ArrayList<Image>();
+		for (Image icon: icons) {
+			images.add(icon);
+		}
+		this.setIconImages(images);
 		final boolean visible = true;
 		this.setTitle(title);
-		this.setIconImage(icon);
 		this.setVisible(visible);
 	}
 
@@ -67,9 +71,14 @@ public class GameWindow extends Window {
 	 * @throws IOException If the icon can not be read.
 	 */
 	public static GameWindow createWindow(final String title,
-			final String loc) throws IOException {
-		final URL iconurl = Launcher.class.getResource(loc);
-		final Image icon = ImageIO.read(iconurl);
-		return new GameWindow(title, icon);
+			final String... locs) throws IOException {
+		final int len = locs.length;
+		Image[] icons = new Image[len];
+		for (int i = 0; i < len; i++) {
+			final URL iconurl = GameWindow.class.getResource(locs[i]);
+			final Image icon = ImageIO.read(iconurl);
+			icons[i] = icon;
+		}
+		return new GameWindow(title, icons);
 	}
 }
