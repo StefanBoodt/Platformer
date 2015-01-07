@@ -4,8 +4,20 @@ import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+//import org.junit.Test;
 
+/**
+ * Tests the GroundBlock class.
+ * 
+ * @since 07-01-2015
+ * @version 07-01-2015
+ * 
+ * @see GroundBlock
+ * @see BlockTest
+ * 
+ * @author stefanboodt
+ *
+ */
 public class GroundBlockTest extends BlockTest {
 	
 	@Before
@@ -20,4 +32,8 @@ public class GroundBlockTest extends BlockTest {
 		super.tearDown();
 	}
 
+	@Override
+	public void testGetRemainingHits() {
+		assertEquals(Integer.MAX_VALUE, getBlock().getRemainingHits());
+	}
 }

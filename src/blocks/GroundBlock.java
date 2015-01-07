@@ -2,15 +2,27 @@ package blocks;
 
 import game.GameObject;
 import game.Hero;
-import game.PlatformGame;
-import gui.GameWindow;
 
 import java.awt.*;
-import java.awt.geom.Line2D;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
 
+/**
+ * A block that is usually found on or in the ground. This is a type of
+ * block that does not have much gimmicks and is found on a really regular
+ * basis. It has an easy to calm look that does not distract the player much.
+ * 
+ * @since 07-01-2015
+ * @version 07-01-2015
+ * 
+ * @see Block
+ * @see Image
+ * @see GameObject
+ * 
+ * @author stefanboodt
+ *
+ */
 public class GroundBlock extends Block {
 
 	private static Image img;
@@ -19,10 +31,10 @@ public class GroundBlock extends Block {
 		super(x, y);
 		loadImage();
 	}
-
-	@Override
-	public boolean isVisible() {
-		return getX() >= 0 && getX() <= GameWindow.WIDTH;
+	
+	public GroundBlock(Block block) {
+		super(block);
+		loadImage();
 	}
 
 	@Override
@@ -71,5 +83,10 @@ public class GroundBlock extends Block {
 			URL imageURL = GroundBlock.class.getResource("groundblock.png");
 			img = new ImageIcon(imageURL).getImage();
 		}
+	}
+	
+	@Override
+	public Block clone() {
+		return new GroundBlock(this);
 	}
 }
