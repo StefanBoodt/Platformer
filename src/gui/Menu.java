@@ -1,7 +1,6 @@
 package gui;
 
 import java.awt.Dimension;
-import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -26,7 +25,7 @@ public class Menu extends MainMenu {
 	/**
 	 * The listener to use.
 	 */
-	private final ActionListener listener;
+	private final MenuListener listener;
 	
 	/**
 	 * The dimensions of the button.
@@ -44,7 +43,7 @@ public class Menu extends MainMenu {
 	 * Creates a menu.
 	 * @param listener the listener to use.
 	 */
-	public Menu(ActionListener listener) {
+	public Menu(MenuListener listener) {
 		super();
 		this.listener = listener;
 		setUp();
@@ -103,7 +102,7 @@ public class Menu extends MainMenu {
 	 * Gets the listener used for the buttons in the menu.
 	 * @return The listener used by this class.
 	 */
-	public ActionListener getListener() {
+	public MenuListener getListener() {
 		return listener;
 	}
 	

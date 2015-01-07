@@ -32,12 +32,12 @@ public class GameWindow extends Window {
 	/**
 	 * The width and height of the screen.
 	 */
-	private final int width = 1000, height = 800;
+	public static final int WIDTH = 1200, HEIGHT = 800;
 	
 	/**
 	 * The dimension of the game.
 	 */
-	private final Dimension gamedimension = new Dimension(width,height);
+	private final Dimension gamedimension = new Dimension(WIDTH,HEIGHT);
 	
 	/**
 	 * Creates a game window.
@@ -52,14 +52,15 @@ public class GameWindow extends Window {
 			images.add(icon);
 		}
 		this.setIconImages(images);
-		final boolean visible = true;
 		this.setTitle(title);
-		this.setVisible(visible);
+		this.setResizable(false);
+		this.setVisible(true);
 	}
 
 	@Override
 	public void setDefaultMainMenu() {
-		final Menu menu = new Menu(width, height, false);
+		final Menu menu = new Menu(WIDTH, HEIGHT, false);
+		menu.getListener().setWindow(this);
 		this.setScreen(menu);
 	}
 	
